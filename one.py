@@ -3,11 +3,11 @@ from cv2 import IMWRITE_PNG_BILEVEL
 import numpy as np
 import face_recognition
 
-imgElon = face_recognition.load_image_file('./musk.jpg')
+imgElon = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/musk.jpg')
 imgElon = cv2.cvtColor(imgElon,cv2.COLOR_BGR2RGB)
-img = face_recognition.load_image_file('./musk2.jpg')
+img = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/musk2.jpg')
 img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-imgbill = face_recognition.load_image_file('./billgates.jpg')
+imgbill = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/billgates.jpg')
 imgbill = cv2.cvtColor(imgbill,cv2.COLOR_BGR2RGB)
 
 faceLoc=face_recognition.face_locations(imgElon)[0]
