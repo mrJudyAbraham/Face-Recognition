@@ -23,7 +23,7 @@ cv2.rectangle(imgbill,(faceLoc2[3],faceLoc2[0]),(faceLoc2[1],faceLoc2[2]),(255,0
   
 results = face_recognition.compare_faces([encodeElon],encodeImg)
 
-print(type(results))
+#print(type(results))
 
 name="Elon Musk"
 if results[0]==True:
