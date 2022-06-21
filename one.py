@@ -3,11 +3,13 @@ from cv2 import IMWRITE_PNG_BILEVEL
 import numpy as np
 import face_recognition
 
-imgElon = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/musk.jpg')
+path="/home/madj/Documents/Github/Face-Recognition/"
+
+imgElon = face_recognition.load_image_file(path+'musk.jpg')
 imgElon = cv2.cvtColor(imgElon,cv2.COLOR_BGR2RGB)
-img = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/musk2.jpg')
+img = face_recognition.load_image_file(path+'musk2.jpg')
 img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-imgbill = face_recognition.load_image_file('/home/madj/Documents/Github/Face-Recognition/billgates.jpg')
+imgbill = face_recognition.load_image_file(path+'billgates.jpg')
 imgbill = cv2.cvtColor(imgbill,cv2.COLOR_BGR2RGB)
 
 faceLoc=face_recognition.face_locations(imgElon)[0]
@@ -22,8 +24,9 @@ cv2.rectangle(img,(faceLoc1[3],faceLoc1[0]),(faceLoc1[1],faceLoc1[2]),(0,255,0),
 cv2.rectangle(imgbill,(faceLoc2[3],faceLoc2[0]),(faceLoc2[1],faceLoc2[2]),(255,0,0),2)
   
 results = face_recognition.compare_faces([encodeElon],encodeImg)
+faceDis=face_recognition.face_distance([encodeElon],encodeImg)
 
-#print(type(results))
+print(results, faceDis)
 
 name="Elon Musk"
 if results[0]==True:
