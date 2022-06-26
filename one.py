@@ -37,25 +37,41 @@ files_known=os.listdir(data_path)
 
 known_data = []
 unknown_data = []
+k=0
+n=len(files_known)
+print(n)
+
 for i in files_known:
+    if k<=n:
+        fldr=i.split('.')[0]
+        path=os.path.join(identify_path,fldr)
+        os.mkdir(path)
+        k+=1 
+#    print(i.split('.')[0])
     path=data_path+i
-    known_data.append(decode(path))
+    known_data.extend([decode(path),i])
 
 for j in files_unknown:
     path=identify_path+j
-    unknown_data.append(decode(path))
+    unknown_data.extend([decode(path),j])
+    break
 
 #print(known_data)
 #print(unknown_data)
 
 for i in known_data:
     for j in unknown_data:
-        output=compare(i,j)
-        print(output)
+        #output=compare(i,j)
+        print(i)
 
 '''
 cv2.rectangle(img,(faceLoc[3],faceLoc[0]),(faceLoc[1],faceLoc[2]),(0,255,0),2)
 cv2.imshow('Elon ',img)
 cv2.waitKey(0)
-'''
 
+    print(i.split('.'))
+    fldr=i.split('.')
+    path=os.path.join(identify_path,fldr)
+    os.mkdir(path)
+
+'''
